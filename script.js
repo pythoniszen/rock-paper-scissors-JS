@@ -12,6 +12,8 @@ function game() {
             roundResult = 'Player Wins';
         } else if (roundResult.charAt(4) === 'L') {
             roundResult = 'Computer Wins';
+        } else {
+            roundResult = 'Tie';
         }
 
         if (roundResult === 'Player Wins') {
@@ -42,7 +44,7 @@ function playRound() {
     let computerChoice = getComputerChoice();
     let result = '';
     if (playerChoice === computerChoice) {
-        result = 'Tie';
+        return result = 'Tie';
     } else if (playerChoice === 'ROCK') {
         if (computerChoice === 'PAPER') {
             result = 'You Lose! Paper beats Rock';
@@ -79,14 +81,17 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    let choice = prompt('Type Rock, Paper, or Scissors.');
+    let choice = '';
+    while (choice !== 'ROCK' || choice !== 'PAPER' || choice !== 'SCISSORS') {
+        choice = prompt('Type Rock, Paper, or Scissors.');
+        choice = choice.toUpperCase();
 
-    if (choice.toUpperCase() === "ROCK" 
-    || choice.toUpperCase() === "PAPER" 
-    || choice.toUpperCase() === "SCISSORS" ) {
-        return choice.toUpperCase();
-    } else {
-        alert('Error. Please try again.');
-        getPlayerChoice();
+        if (choice === "ROCK" 
+        || choice === "PAPER" 
+        || choice === "SCISSORS" ) {
+            return choice;
+        } else {
+            alert('Error. Please try again.');
+        }
     }
 }
