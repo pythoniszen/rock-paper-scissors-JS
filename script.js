@@ -4,9 +4,19 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-        let roundResult = playRound();
-        console.log(roundResult);
+    // Loop lets you play a limited amount of rounds
+    for (let i = 0; i < 1; i++) {
+        let roundResult = '';
+
+        const rock = document.querySelector('#rock')
+        console.log(rock.id)
+        
+        rock.addEventListener('click', () => {
+            roundResult = playRound(rock.id);
+            console.log(roundResult);
+
+        });
+
 
         if (roundResult.charAt(4) === 'W') {
             roundResult = 'Player Wins';
@@ -22,25 +32,29 @@ function game() {
             computerScore++;
         }
 
-        if (computerScore >= 3 || playerScore >= 3) {
+        // Lets game play until someone wins 3 rounds
+
+        if (computerScore >= 1 || playerScore >= 1) {
             break;
         }
     }
 
-    if (playerScore > computerScore) {
-        console.log('Player Wins Game');
-        return 'Player Wins Game';
-    } else if (playerScore < computerScore) {
-        console.log('Computer Wins Game');
-        return 'Computer Wins Game';
-    } else {
-        console.log('Tie Game');
-        return 'Tie Game';
-    }
+    // Displays the winner of the game
+
+    //if (playerScore > computerScore) {
+        //console.log('Player Wins Game');
+      //  return 'Player Wins Game';
+    //} else if (playerScore < computerScore) {
+        //console.log('Computer Wins Game');
+      //  return 'Computer Wins Game';
+    //} else {
+      //  console.log('Tie Game');
+    //    return 'Tie Game';
+    //}
 }
 
-function playRound() {
-    let playerChoice = getPlayerChoice();
+function playRound(elementId) {
+    let playerChoice = elementId.toUpperCase();
     let computerChoice = getComputerChoice();
     let result = '';
     if (playerChoice === computerChoice) {
@@ -80,18 +94,25 @@ function getComputerChoice() {
     }
 }
 
+// function no longer needed
+//function to edit
+// switch function from a prompt to an event listener for a click event on a button
+// if rock is clicked set variable choice to rock and same for paper and scissors
 function getPlayerChoice() {
     let choice = '';
     while (choice !== 'ROCK' || choice !== 'PAPER' || choice !== 'SCISSORS') {
-        choice = prompt('Type Rock, Paper, or Scissors.');
-        choice = choice.toUpperCase();
+        
+        document.querySelector('#rock').addEventListener('click', () => {
+            choice = 'ROCK';
+        });
 
         if (choice === "ROCK" 
         || choice === "PAPER" 
         || choice === "SCISSORS" ) {
+            console.log(choice);
             return choice;
         } else {
-            alert('Error. Please try again.');
+            alert('Error');
         }
     }
 }

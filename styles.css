@@ -1,0 +1,12 @@
+
+h1 {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin: 100px 40px;
+    gap: 20px;
+}
