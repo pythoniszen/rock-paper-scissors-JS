@@ -5,39 +5,45 @@ function game() {
     let computerScore = 0;
 
     // Loop lets you play a limited amount of rounds
-    for (let i = 0; i < 1; i++) {
+    //for (let i = 0; i < 1; i++) {
         let roundResult = '';
 
-        const rock = document.querySelector('#rock')
-        console.log(rock.id)
+        const rock = document.querySelector('#rock');
         
         rock.addEventListener('click', () => {
             roundResult = playRound(rock.id);
             console.log(roundResult);
 
+            if (roundResult.charAt(4) === 'W') {
+                roundResult = 'Player Wins';
+            } else if (roundResult.charAt(4) === 'L') {
+                roundResult = 'Computer Wins';
+            } else {
+                roundResult = 'Tie';
+            }
+    
+            if (roundResult === 'Player Wins') {
+                playerScore++;
+                console.log(playerScore);
+                let playerScoreDisplay = document.querySelector('#playerScore');
+                playerScoreDisplay.innerHTML = playerScore;
+                
+            } else if (roundResult === 'Computer Wins') {
+                computerScore++;
+                let computerScoreDisplay = document.querySelector('#computerScore');
+                computerScoreDisplay.innerHTML = computerScore;
+            }
         });
 
 
-        if (roundResult.charAt(4) === 'W') {
-            roundResult = 'Player Wins';
-        } else if (roundResult.charAt(4) === 'L') {
-            roundResult = 'Computer Wins';
-        } else {
-            roundResult = 'Tie';
-        }
-
-        if (roundResult === 'Player Wins') {
-            playerScore++;
-        } else if (roundResult === 'Computer Wins') {
-            computerScore++;
-        }
+        
 
         // Lets game play until someone wins 3 rounds
 
-        if (computerScore >= 1 || playerScore >= 1) {
-            break;
-        }
-    }
+       // if (computerScore >= 1 || playerScore >= 1) {
+            //break;
+        //}
+   //}
 
     // Displays the winner of the game
 
