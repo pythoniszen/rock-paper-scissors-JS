@@ -3,60 +3,34 @@ game();
 function game() {
     let playerScore = 0;
     let computerScore = 0;
+    let roundResult = '';
 
-    // Loop lets you play a limited amount of rounds
-    //for (let i = 0; i < 1; i++) {
-        let roundResult = '';
-
-        const rock = document.querySelector('#rock');
+    const rock = document.querySelector('#rock');
         
-        rock.addEventListener('click', () => {
-            roundResult = playRound(rock.id);
-            console.log(roundResult);
+    rock.addEventListener('click', () => {
+        roundResult = playRound(rock.id);
+        console.log(roundResult);
 
-            if (roundResult.charAt(4) === 'W') {
-                roundResult = 'Player Wins';
-            } else if (roundResult.charAt(4) === 'L') {
-                roundResult = 'Computer Wins';
-            } else {
-                roundResult = 'Tie';
-            }
-    
-            if (roundResult === 'Player Wins') {
-                playerScore++;
-                console.log(playerScore);
-                let playerScoreDisplay = document.querySelector('#playerScore');
-                playerScoreDisplay.innerHTML = playerScore;
-                
-            } else if (roundResult === 'Computer Wins') {
-                computerScore++;
-                let computerScoreDisplay = document.querySelector('#computerScore');
-                computerScoreDisplay.innerHTML = computerScore;
-            }
-        });
+        if (roundResult.charAt(4) === 'W') {
+            roundResult = 'Player Wins';
+        } else if (roundResult.charAt(4) === 'L') {
+            roundResult = 'Computer Wins';
+        } else {
+            roundResult = 'Tie';
+        }
 
-
-        
-
-        // Lets game play until someone wins 3 rounds
-
-       // if (computerScore >= 1 || playerScore >= 1) {
-            //break;
-        //}
-   //}
-
-    // Displays the winner of the game
-
-    //if (playerScore > computerScore) {
-        //console.log('Player Wins Game');
-      //  return 'Player Wins Game';
-    //} else if (playerScore < computerScore) {
-        //console.log('Computer Wins Game');
-      //  return 'Computer Wins Game';
-    //} else {
-      //  console.log('Tie Game');
-    //    return 'Tie Game';
-    //}
+        if (roundResult === 'Player Wins') {
+            playerScore++;
+            console.log(playerScore);
+            let playerScoreDisplay = document.querySelector('#playerScore');
+            playerScoreDisplay.innerHTML = playerScore;
+            
+        } else if (roundResult === 'Computer Wins') {
+            computerScore++;
+            let computerScoreDisplay = document.querySelector('#computerScore');
+            computerScoreDisplay.innerHTML = computerScore;
+        }
+    });
 }
 
 function playRound(elementId) {
@@ -97,28 +71,5 @@ function getComputerChoice() {
         return 'PAPER';
     } else {
         return 'SCISSORS';
-    }
-}
-
-// function no longer needed
-//function to edit
-// switch function from a prompt to an event listener for a click event on a button
-// if rock is clicked set variable choice to rock and same for paper and scissors
-function getPlayerChoice() {
-    let choice = '';
-    while (choice !== 'ROCK' || choice !== 'PAPER' || choice !== 'SCISSORS') {
-        
-        document.querySelector('#rock').addEventListener('click', () => {
-            choice = 'ROCK';
-        });
-
-        if (choice === "ROCK" 
-        || choice === "PAPER" 
-        || choice === "SCISSORS" ) {
-            console.log(choice);
-            return choice;
-        } else {
-            alert('Error');
-        }
     }
 }
