@@ -4,6 +4,11 @@ h1 {
     margin: 50px 0;
 }
 
+h3 {
+    text-align: center;
+    margin: 50px 0;
+}
+
 .buttons {
     display: flex;
     justify-content: center;

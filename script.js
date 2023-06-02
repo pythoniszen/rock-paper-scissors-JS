@@ -3,6 +3,7 @@ game();
 function game() {
     let playerScore = 0;
     let computerScore = 0;
+    let tieRecord = 0;
     let roundResult = '';
 
     const rock = document.querySelector('#rock');
@@ -23,12 +24,16 @@ function game() {
             playerScore++;
             console.log(playerScore);
             let playerScoreDisplay = document.querySelector('#playerScore');
-            playerScoreDisplay.innerHTML = playerScore;
+            playerScoreDisplay.innerHTML = "Player: " + playerScore;
             
         } else if (roundResult === 'Computer Wins') {
             computerScore++;
             let computerScoreDisplay = document.querySelector('#computerScore');
-            computerScoreDisplay.innerHTML = computerScore;
+            computerScoreDisplay.innerHTML = "Computer: " + computerScore;
+        } else if (roundResult === 'Tie') {
+            tieRecord++;
+            let tieRecordDisplay = document.querySelector('#tieRecord');
+            tieRecordDisplay.innerHTML = "Rounds Tied: " + tieRecord;
         }
     });
 }
