@@ -29,7 +29,9 @@ h3 {
     height: 150px;
     width: 150px;
     border: none;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    transform: translateZ(0);
+    
 }
 
 #rock:hover, #paper:hover, #scissors:hover {
@@ -38,7 +40,7 @@ h3 {
 }
 
 #rock:active, #paper:active, #scissors:active {
-    transform: scale(1);
+    transform: scale(1.0);  
 }
 
 #rock {
@@ -51,8 +53,8 @@ h3 {
 
 #scissors {
     background-image: url('/images/scissors.jpg');
-    height: 130px;
-    width: 13   0px;
+    height: 120px;
+    width: 120px;
 }
 
 .modal {
