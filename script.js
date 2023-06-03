@@ -14,8 +14,6 @@ function game() {
         roundResult = playRound(rock.id);
         console.log(roundResult);
 
-        
-
         if (roundResult.charAt(4) === 'W') {
             roundResult = 'Player Wins';
         } else if (roundResult.charAt(4) === 'L') {
@@ -23,8 +21,6 @@ function game() {
         } else {
             roundResult = 'Tie';
         }
-
-        
 
         if (roundResult === 'Player Wins') {
             playerScore++;
