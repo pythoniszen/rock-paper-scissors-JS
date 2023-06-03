@@ -52,6 +52,7 @@
     background-color: white;
     height: 150px;
     width: 150px;
+    padding-bottom: 50px;;
     border: none;
     transition: all 0.1s ease-in-out;
     transform: translateZ(0);
