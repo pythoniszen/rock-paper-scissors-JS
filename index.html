@@ -3,23 +3,35 @@
   <head>
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
     <h1>Rock Paper Scissors</h1>
     <h3>Click a button to play a round against the computer</h3>
     <h3>First to 5 wins!</h3>
 
+    <div id="openModal"></div>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <p id="modalMessage"></p>
+        <button id="restartButton">Restart Game</button>
+      </div>
+    </div>
+    
+    
+
     <div class="buttons">
       <div>
-        <button id="rock">Rock</button>
+        <button id="rock"></button>
       </div>
 
       <div>
-        <button id="paper">Paper</button>
+        <button id="paper"></button>
       </div>
 
       <div>
-        <button id="scissors">Scissors</button>
+        <button id="scissors"></button>
       </div>
     </div>
 
