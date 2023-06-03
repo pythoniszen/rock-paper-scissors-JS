@@ -16,6 +16,7 @@ function game() {
     const button = document.querySelector(`#${option.id}`);
     button.addEventListener('click', () => {
       computeRoundResult(button);
+      playClickSound();
     });
   });
 }
@@ -92,9 +93,15 @@ function checkScore() {
     const modalMessage = document.getElementById('modalMessage');
 
     if (playerScore >= 5) {
+      const winSound = document.getElementById('winSound');
+      winSound.currentTime = 0;
+      winSound.play();
       modalMessage.textContent = 'Congratulations! You reached 5 points and won the game.';
     } else {
-      modalMessage.textContent = 'Game Over! The computer reached 5 points!';
+      const gameOver = document.getElementById('gameOver');
+      gameOver.currentTime = 0;
+      gameOver.play();
+      modalMessage.textContent = 'Game Over! The computer reached 5 points.';
     }
 
     modal.style.display = 'block';
@@ -111,4 +118,11 @@ function restartGame() {
   computerScore = 0;
   tieRecord = 0;
   updateScoreDisplay();
+}
+
+function playClickSound() {
+    const clickSound = document.getElementById('clickSound');
+    clickSound.pause();
+    clickSound.currentTime = 0.2;
+    clickSound.play();
 }
