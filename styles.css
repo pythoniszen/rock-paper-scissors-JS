@@ -71,15 +71,15 @@
   }
   
   #rock {
-    background-image: url('/images/rock.png');
+    background-image: url('/home/nathan/repos/rock-paper-scissors-JS/images/rock.png');
   }
   
   #paper {
-    background-image: url('/images/paper.jpg');
+    background-image: url('/home/nathan/repos/rock-paper-scissors-JS/images/paper.jpg');
   }
   
   #scissors {
-    background-image: url('/images/scissors.jpg');
+    background-image: url('/home/nathan/repos/rock-paper-scissors-JS/images/scissors.jpg');
     height: 120px;
     width: 120px;
   }
